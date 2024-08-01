@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "caf220cddc1a9c59dcfa817eabf7fa420d55f62e5d089056beb6fea2bdc320f4"
+            "sha256": "90e5e383babccc2077c193c8549680e13a8d4057d9c14e9fe2812d2e05fd2112"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -252,6 +252,10 @@
         "cb-django-docusign": {
             "editable": true,
             "path": "./modules/django_docusign"
+        },
+        "cb-django-files": {
+            "editable": true,
+            "path": "./modules/django_files"
         },
         "cb-django-google-appointment": {
             "editable": true,
