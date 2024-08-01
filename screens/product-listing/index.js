@@ -1,266 +1,203 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  Pressable,
-  FlatList
-} from "react-native";
+import { Text, StyleSheet, View, FlatList, Image } from "react-native";
 
-const ProductListing = () => {
+const ProductListingScreen = (params) => {
   const [products, setProducts] = useState([]);
-  const [selectedProducts, setSelectedProducts] = useState([]);
   useEffect(() => {
     setProducts([
       {
         id: 1,
-        title: "Dish name",
-        count: 1,
+        name: "Product name",
+        status: true,
+        isFavorite: false,
         image: require("./assets/productImage.png")
       },
       {
         id: 2,
-        title: "Dish name",
-        count: 1,
-        image: require("./assets/productImage.png")
+        name: "Product name",
+        status: false,
+        isFavorite: true,
+        image: require("./assets/productImage2.png")
       },
       {
         id: 3,
-        title: "Dish name",
-        count: 1,
+        name: "Product name",
+        status: true,
+        isFavorite: false,
         image: require("./assets/productImage.png")
       },
       {
         id: 4,
-        title: "Dish name",
-        count: 1,
+        name: "Product name",
+        status: false,
+        isFavorite: true,
+        image: require("./assets/productImage2.png")
+      },
+      {
+        id: 5,
+        name: "Product name",
+        status: true,
+        isFavorite: false,
         image: require("./assets/productImage.png")
+      },
+      {
+        id: 6,
+        name: "Product name",
+        status: false,
+        isFavorite: true,
+        image: require("./assets/productImage2.png")
       }
     ]);
   }, []);
-  const handleProductSelect = product => {
-    if (selectedProducts.includes(product)) {
-      const newSelectedProducts = selectedProducts.filter(
-        selectedProduct => selectedProduct.id !== product.id
-      );
-      setSelectedProducts(newSelectedProducts);
-    } else {
-      setSelectedProducts([...selectedProducts, product]);
-    }
-  };
-  const handleCountChange = (type, product) => {
-    const newProducts = products.map(item => {
-      if (item.id === product.id) {
-        if (type === "increase") {
-          item.count++;
-        } else if (type === "decrease") {
-          if (item.count > 1) {
-            item.count--;
-          }
-        }
-      }
-      return item;
-    });
-    setProducts(newProducts);
-  };
   return (
     <View style={styles.container}>
-      <FlatList
-        data={products}
-        renderItem={({ item }) => (
-          <View style={styles.productContainer}>
-            <View style={styles.imageContainer}>
-              <Image style={styles.image} source={item.image} />
-              <Radio
-                style={styles.radio}
-                selected={selectedProducts.includes(item)}
-                onPress={() => handleProductSelect(item)}
-              />
-            </View>
-            <View style={styles.flexRow}>
-              <Text style={styles.productName}>{item.title}</Text>
-              <View style={styles.flexRow}>
-                <Text style={styles.counterText}>
-                  {item.count} item{item.count > 1 && "s"}
-                </Text>
-                <Pressable onPress={() => handleCountChange("decrease", item)}>
-                  <Image
-                    style={styles.icon}
-                    source={require("./assets/decrementIcon.png")}
-                  />
-                </Pressable>
-                <Pressable onPress={() => handleCountChange("increase", item)}>
-                  <Image
-                    style={styles.icon}
-                    source={require("./assets/incrementIcon.png")}
-                  />
-                </Pressable>
-              </View>
-            </View>
-            <Button buttonText="Order" style={styles.button} hideShadow />
-          </View>
-        )}
-      />
-    </View>
-  );
-};
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff"
-  },
-  heading: {
-    fontSize: 20
-  },
-  productContainer: {
-    paddingHorizontal: 20,
-    width: "100%",
-    marginVertical: 10
-  },
-  imageContainer: {
-    width: 350,
-    height: 150,
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 10,
-    shadowColor: "rgba(0, 0, 0, 0.5)",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
-  },
-  radio: {
-    position: "absolute",
-    top: 10,
-    right: 10
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-    alignSelf: "center",
-    borderRadius: 10
-  },
-  flexRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  productName: {
-    fontSize: 18,
-    color: "#313633",
-    marginLeft: 10,
-    flex: 1
-  },
-  counterText: {
-    fontSize: 18,
-    color: "#12D790"
-  },
-  icon: {
-    width: 25,
-    height: 25,
-    marginLeft: 10
-  },
-  button: {
-    marginHorizontal: 20,
-    marginVertical: 15
-  }
-});
-
-export default ProductListing;
-
-const Button = params => {
-  const backgroundColor = params.backgroundColor || "#000";
-  const textColor = params.textColor || "#fff";
-  const btnStyle = {
-    backgroundColor: backgroundColor,
-    borderColor: params.borderColor || backgroundColor,
-    borderWidth: 1
-  };
-  const btnText = {
-    color: textColor
-  };
-  return (
-    <View style={[buttonStyles.btnContainer, params.style]}>
-      <View style={!params.hideShadow ? buttonStyles.shadowContainer : null}>
-        <Pressable
-          style={[buttonStyles.btn, btnStyle]}
-          onPress={params.onPress}>
-          <Text style={[buttonStyles.btnText, btnText]}>
-            {params.buttonText}
-          </Text>
-          <View style={styles.childrenContainer}>{params.children}</View>
-        </Pressable>
+      <TabView tabTitles={["All", "Best Products"]} selected={0} />
+      <View style={styles.productsContainer}>
+        <FlatList
+          data={products}
+          numColumns={2}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => <Product product={item} />}
+          columnWrapperStyle={{
+            justifyContent: "space-around"
+          }}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
     </View>
   );
 };
 
-const buttonStyles = StyleSheet.create({
-  btnContainer: {
-    justifyContent: "center"
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff"
   },
-  shadowContainer: {
-    shadowColor: "rgba(0, 0, 0, 0.5)",
-    shadowOffset: {
-      width: 0,
-      height: 5
-    },
-    shadowOpacity: 0.5,
-    shadowRadius: 10,
-    elevation: 10,
-    backgroundColor: "#fff",
-    borderRadius: 10
-  },
-  btn: {
-    height: 50,
-    padding: 10,
-    paddingHorizontal: 25,
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-
-    flexDirection: "row"
-  },
-  btnText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold"
-  },
-  childrenContainer: {
-    justifyContent: "center",
-    alignItems: "center"
+  productsContainer: {
+    paddingHorizontal: 20
   }
 });
+export default ProductListingScreen;
 
-const Radio = props => {
+const TabView = ({ tabTitles, selected }) => {
   return (
-    <Pressable
-      style={[radioStyles.container, props.style]}
-      onPress={props.onPress}>
-      {props.selected && <View style={radioStyles.radio} />}
-    </Pressable>
+    <View style={tabViewStyles.paletteContainer}>
+      {tabTitles.map((title, index) => (
+        <View
+          style={
+            index === selected
+              ? tabViewStyles.selected
+              : tabViewStyles.unSelected
+          }
+          key={index}
+        >
+          <Text>{title}</Text>
+        </View>
+      ))}
+    </View>
   );
 };
 
-const radioStyles = StyleSheet.create({
-  container: {
-    width: 20,
-    height: 20,
+const tabViewStyles = StyleSheet.create({
+  paletteContainer: {
+    width: "70%",
+    height: 48,
+    backgroundColor: "#F1F1F1",
+    flexDirection: "row",
+    alignItems: "center",
     borderRadius: 10,
-    borderWidth: 2,
-    borderColor: "#000",
+    padding: 6,
+    marginVertical: 10,
+    marginHorizontal: 20
+  },
+  selected: {
+    borderRadius: 10,
+    flex: 1,
+    backgroundColor: "#fff",
+    height: "100%",
     justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "gray",
+    elevation: 10
+  },
+  unSelected: {
+    flex: 1,
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F1F1F1",
+    borderRadius: 10
+  }
+});
+
+const Product = ({ product }) => {
+  const availability = {
+    color: product.status ? "#12D790" : "#EA4335",
+    fontSize: 12,
+    fontWeight: "bold"
+  };
+  return (
+    <View style={productStyles.container}>
+      <View style={productStyles.imageContainer}>
+        <Image source={product.image} style={productStyles.productImage} />
+
+        <Image
+          source={
+            product.isFavorite
+              ? require("./assets/isFavouriteIcon.png")
+              : require("./assets/favIcon.png")
+          }
+          style={productStyles.favIcon}
+        />
+      </View>
+      <View style={productStyles.descriptionContainer}>
+        <Text style={productStyles.bold}>{product.name}</Text>
+        <View style={productStyles.availabilityTextContainer}>
+          <Text style={productStyles.availabilityText}>Purchase: </Text>
+          <Text style={availability}>
+            {product.status ? "Available" : "Not available"}
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const productStyles = StyleSheet.create({
+  container: {
+    height: 240,
+    width: 160,
+    margin: 10
+  },
+  imageContainer: {
+    height: 180,
+    width: 160,
+    borderRadius: 10
+  },
+  productImage: {
+    height: "100%",
+    width: "100%",
+    borderRadius: 10
+  },
+  descriptionContainer: {
+    justifyContent: "center",
+    padding: 10
+  },
+  availabilityTextContainer: {
+    flexDirection: "row",
     alignItems: "center"
   },
-  radio: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: "#000"
+  availabilityText: {
+    color: "#7C7C7C",
+    fontSize: 12,
+    fontWeight: "bold"
+  },
+  bold: {
+    fontWeight: "bold"
+  },
+  favIcon: {
+    position: "absolute",
+    right: 10,
+    top: 10
   }
 });
