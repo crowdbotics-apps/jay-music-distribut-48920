@@ -85,6 +85,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [django-docusign](backend/modules)
 - [react-native-photo-editing](modules/photo-editing)
 - [react-native-wallet-connect](modules/wallet-connect)
+- [react-native-fingerprint-authentication](modules/fingerprint-authentication)
 
 # Getting started: Frontend
 
