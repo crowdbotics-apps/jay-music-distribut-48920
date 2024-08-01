@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c0d529a848d0c7769cf1d1f5f260e6cd820d5083f5220da7a863d1b782d82b8d"
+            "sha256": "994da451ea0a0bf501d5862f028cc277a9326a497fa452e23177ce81ad99ecd7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -95,6 +95,10 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==5.4.0"
+        },
+        "cb-django-appointment-local": {
+            "editable": true,
+            "path": "./modules/django_appointment_local"
         },
         "cb-django-google-appointment": {
             "editable": true,
@@ -582,7 +586,6 @@
             "version": "==2.7.1"
         },
         "googleapis-common-protos": {
-            "extras": [],
             "hashes": [
                 "sha256:27a2499c7e8aff199665b22741997e485eccc8645aa9176c7c988e6fae507945",
                 "sha256:27c5abdffc4911f28101e635de1533fb4cfd2c37fbaa9174587c799fac90aa87"
