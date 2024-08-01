@@ -3135,10 +3135,13 @@
     react-native-camera "4.2.1"
     react-native-qrcode-scanner "1.5.5"
 
-"@modules/side-drawer@file:./modules/side-drawer/":
+"@modules/side-drawer@file:./modules/side-drawer":
   version "1.0.0"
 
 "@modules/signature@file:./modules/signature":
+  version "1.0.0"
+
+"@modules/signature@file:./modules/signature/":
   version "1.0.0"
 
 "@modules/social-feed@file:./modules/social-feed":
