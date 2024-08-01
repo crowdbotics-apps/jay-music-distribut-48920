@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Image, NativeEventEmitter, StyleSheet } from "react-native";
-
+// @ts-ignore
 import ZoomUs, { ZoomEmitter } from "react-native-zoom-us";
-
+// @ts-ignore
 import { WebView } from "react-native-webview";
-import { API_URL, deleteMeeting, makeId, parseQueryString, parseStartDate } from "./utils";
-import { getOauthToken, getCurrentUser, createMeeting, getMeetingList, slice } from "./store";
+import { API_URL, createMeeting, deleteMeeting, getCurrentUser, getMeetingList, getOauthToken, makeId, parseQueryString, parseStartDate } from "./utils";
 // @ts-ignore
 import DialogInput from "react-native-dialog-input";
 import Button from "./components/Button";
 import MeetingScheduleModal from "./components/MeetingScheduleModal";
-
+// @ts-ignore
 import CookieManager from "@react-native-cookies/cookies";
 import ScheduleMeetingList from "./components/ScheduleMeetingList";
-
+// @ts-ignore
 import { sha256 } from "react-native-sha256";
-import { unwrapResult } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 import options from "./options";
 
 const ZoomCalling = () => {
-  const dispatch = useDispatch();
   const [sha256CodeChallenge, setSha256CodeChallenge] = useState("");
   const userAgent = "Mozilla/5.0 (Linux; Android) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/98.0.4758.87 Mobile Safari/537.36";
   const [isFirst, setIsFirst] = useState(true);
@@ -75,55 +71,40 @@ const ZoomCalling = () => {
     }
   }, [meetingEvent]);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (oauthToken) {
-      await dispatch(getCurrentUser(oauthToken?.access_token))
-        .then(unwrapResult)
-        .then(async response => {
-          setCurrentUser(response);
-          await dispatch(getMeetingList({ userId: response?.id, token: oauthToken?.access_token }))
-            .then(unwrapResult)
-            .then(res => {
-              if (res.meetings.length === 0) { return; }
+      getCurrentUser(oauthToken.access_token).then(response => {
+        setCurrentUser(response);
+        getMeetingList(response.id, oauthToken.access_token).then(res => {
+          if (res.meetings.length === 0) { return; }
 
-              const DATA = [{
-                title: "Upcoming Meetings",
-                data: res.meetings
-              }];
-              setUpcomingMeetingsList(DATA);
-            })
-            .catch(error => {
-              console.log(error);
-            });
-        })
-        .catch(error => {
-          console.log(error);
-        });
+          const DATA = [{
+            title: "Upcoming Meetings",
+            data: res.meetings
+          }];
+          setUpcomingMeetingsList(DATA);
+        }).catch((error) => console.log(error));
+      }).catch((error) => console.log(error));
     }
   }, [oauthToken]);
 
-  const startMeeting = async () => {
+  const startMeeting = () => {
     const meetingPayload = {
       topic: `${currentUser.first_name + "" + currentUser.last_name}'s Personal Meeting Room`,
       type: 1
     };
-    await dispatch(createMeeting({ userid: currentUser.id, meetingPayload: meetingPayload, token: oauthToken.access_token }))
-      .then(unwrapResult)
-      .then(response => {
-        setMeetingInfo(response);
-        const params = parseQueryString(response?.start_url);
-        if (params.zak) {
-          ZoomUs.startMeeting({
-            userName: currentUser.first_name + "" + currentUser.last_name,
-            meetingNumber: currentUser.pmi,
-            userId: currentUser.id,
-            zoomAccessToken: params.zak
-          });
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    createMeeting(currentUser.id, meetingPayload, oauthToken.access_token).then(response => {
+      setMeetingInfo(response);
+      const params = parseQueryString(response.start_url);
+      if (params.zak) {
+        ZoomUs.startMeeting({
+          userName: currentUser.first_name + "" + currentUser.last_name,
+          meetingNumber: currentUser.pmi,
+          userId: currentUser.id,
+          zoomAccessToken: params.zak
+        });
+      }
+    }).catch(err => console.log(err));
   };
 
   const joinMeeting = (meetingId) => {
@@ -134,24 +115,19 @@ const ZoomCalling = () => {
     }).then(res => console.log(res)).catch((error) => console.log(error));
   };
 
-  const onNavigationStateChange = async (evt) => {
+  const onNavigationStateChange = (evt) => {
     if (evt.url.includes(options.REDIRECT_URI)) {
       const params = parseQueryString(evt.url);
       if (params.code && isFirst) {
         setIsFirst(false);
-        await dispatch(getOauthToken({ code: params?.code, codeVerifier: sha256CodeChallenge }))
-          .then(unwrapResult)
-          .then(response => {
-            setOauthToken(response);
-          })
-          .catch(error => {
-            console.log(error);
-          });
+        getOauthToken(params.code, sha256CodeChallenge).then((response) => {
+          setOauthToken(response);
+        }).catch((error) => console.log(error));
       }
     }
   };
 
-  const onHandleMeetingSchedule = async (data) => {
+  const onHandleMeetingSchedule = (data) => {
     setIsMeetingScheduleSave(true);
     const meetingPayload = {
       settings: {
@@ -195,30 +171,19 @@ const ZoomCalling = () => {
     } else if (data.recurring_meeting && data.recurrence.recurrence_type === -1) {
       meetingPayload.type = 3;
     }
-    await dispatch(createMeeting({ userId: currentUser.id, meetingPayload: meetingPayload, token: oauthToken.access_token }))
-      .then(unwrapResult)
-      .then(async response => {
-        setIsMeetingScheduleModal(!isMeetingScheduleModal);
-        setIsMeetingScheduleSave(false);
-        await dispatch(getMeetingList({ userId: currentUser.id, token: oauthToken?.access_token }))
-          .then(unwrapResult)
-          .then(res => {
-            if (res.meetings.length === 0) { return; }
+    createMeeting(currentUser.id, meetingPayload, oauthToken.access_token).then(() => {
+      setIsMeetingScheduleModal(!isMeetingScheduleModal);
+      setIsMeetingScheduleSave(false);
+      getMeetingList(currentUser.id, oauthToken.access_token).then(res => {
+        if (res.meetings.length === 0) { return; }
 
-            const DATA = [{
-              title: "Upcoming Meetings",
-              data: res.meetings
-            }];
-            setUpcomingMeetingsList(DATA);
-          })
-          .catch(error => {
-            console.log(error);
-          });
-      })
-      .catch(error => {
-        setIsMeetingScheduleSave(false);
-        console.log(error);
-      });
+        const DATA = [{
+          title: "Upcoming Meetings",
+          data: res.meetings
+        }];
+        setUpcomingMeetingsList(DATA);
+      }).catch((error) => console.log(error));
+    }).catch((error) => { setIsMeetingScheduleSave(false); console.log(error); });
   };
 
   const handleLogout = () => {
@@ -229,7 +194,7 @@ const ZoomCalling = () => {
   };
 
   const handleRemoveMeeting = (item) => {
-    deleteMeeting({ meetingId: item.id, token: oauthToken.access_token }).then(res => {
+    deleteMeeting(item.id, oauthToken.access_token).then(res => {
       const tmpUpcomingMeetingsList = JSON.parse(JSON.stringify(upcomingMeetingsList));
       const index = upcomingMeetingsList[0].data.indexOf(item);
       tmpUpcomingMeetingsList[0].data.splice(index, 1);
@@ -241,57 +206,57 @@ const ZoomCalling = () => {
     <View style={styles.Container}>
       {oauthToken
         ? <>
-          <View style={styles.header}>
+        <View style={styles.header}>
+          <View>
+            <Text onPress={handleLogout} style={styles.LogoutText}>Logout</Text>
+          </View>
+          <View style={styles.UserImageArea}>
             <View>
-              <Text onPress={handleLogout} style={styles.LogoutText}>Logout</Text>
+              <Text>{currentUser.first_name + "" + currentUser.last_name}</Text>
             </View>
-            <View style={styles.UserImageArea}>
-              <View>
-                <Text>{currentUser.first_name + "" + currentUser.last_name}</Text>
-              </View>
-              <Image
-                style={styles.userLogo}
-                resizeMode="cover"
-                borderRadius={10}
-                source={{
-                  uri: currentUser.pic_url
-                }}
-              />
-            </View>
-          </View>
-          <View style={styles.MainCard}>
-            <View style={styles.Card}>
-              <Button title="Host a meeting" onPress={startMeeting} />
-            </View>
-            <View style={styles.Card}>
-              <Button title="Join a meeting" onPress={() => setIsJoinMeeting(true)} />
-            </View>
-          </View>
-          <View style={styles.MeetingCard}>
-            <Button title="Schedule a meeting" onPress={() => setIsMeetingScheduleModal(true)} />
-          </View>
-          <View style={styles.Area}></View>
-          <ScheduleMeetingList upcomingMeetingsList={upcomingMeetingsList} joinMeeting={joinMeeting} handleRemoveMeeting={handleRemoveMeeting} />
-          <DialogInput isDialogVisible={isJoinMeeting}
-            title={"Join Meeting"}
-            message={"Please enter Meeting ID"}
-            hintInput={"Meeting ID"}
-            textInputProps={{ keyboardType: "number-pad" }}
-            submitInput={(meetingId) => joinMeeting(meetingId)}
-            closeDialog={() => setIsJoinMeeting(false)}>
-          </DialogInput>
-          {isMeetingScheduleModal &&
-            <MeetingScheduleModal
-              setModalVisible={setIsMeetingScheduleModal}
-              onHandleMeetingSchedule={onHandleMeetingSchedule}
-              isMeetingScheduleSave={isMeetingScheduleSave}
+            <Image
+              style={styles.userLogo}
+              resizeMode="cover"
+              borderRadius={10}
+              source={{
+                uri: currentUser.pic_url
+              }}
             />
-          }
+          </View>
+        </View>
+        <View style={styles.MainCard}>
+          <View style={styles.Card}>
+            <Button title="Host a meeting" onPress={startMeeting} />
+          </View>
+          <View style={styles.Card}>
+            <Button title="Join a meeting" onPress={() => setIsJoinMeeting(true)} />
+          </View>
+        </View>
+        <View style={styles.MeetingCard}>
+          <Button title="Schedule a meeting" onPress={() => setIsMeetingScheduleModal(true)} />
+        </View>
+        <View style={styles.Area}></View>
+        <ScheduleMeetingList upcomingMeetingsList={upcomingMeetingsList} joinMeeting={joinMeeting} handleRemoveMeeting={handleRemoveMeeting} />
+        <DialogInput isDialogVisible={isJoinMeeting}
+          title={"Join Meeting"}
+          message={"Please enter Meeting ID"}
+          hintInput={"Meeting ID"}
+          textInputProps={{ keyboardType: "number-pad" }}
+          submitInput={(meetingId) => joinMeeting(meetingId)}
+          closeDialog={() => setIsJoinMeeting(false)}>
+        </DialogInput>
+        {isMeetingScheduleModal &&
+          <MeetingScheduleModal
+            setModalVisible={setIsMeetingScheduleModal}
+            onHandleMeetingSchedule={onHandleMeetingSchedule}
+            isMeetingScheduleSave={isMeetingScheduleSave}
+          />
+        }
 
-        </>
+      </>
         : <>
           {sha256CodeChallenge !== "" &&
-            <WebView
+              <WebView
               useWebKit={true}
               userAgent={userAgent}
               onNavigationStateChange={onNavigationStateChange}
@@ -395,6 +360,5 @@ const styles = StyleSheet.create({
 
 export default {
   title: "ZoomCalling",
-  navigator: ZoomCalling,
-  slice
+  navigator: ZoomCalling
 };

@@ -13392,10 +13392,10 @@ react-native-youtube@2.0.2:
   dependencies:
     prop-types "^15.5.0"
 
-react-native-zoom-us@6.16.5:
-  version "6.16.5"
-  resolved "https://registry.yarnpkg.com/react-native-zoom-us/-/react-native-zoom-us-6.16.5.tgz#b5562c42b49f1a41156862b8e484c3aa78334791"
-  integrity sha512-vFAOdPxTdxYYgHsl+WeaaulDwsoJLVxVWVc3t25Qk7dVlZg8KlPniL4aNc3CeVE/KEga5lJ2pfTc0E0tqOT53A==
+react-native-zoom-us@6.6.1:
+  version "6.6.1"
+  resolved "https://registry.yarnpkg.com/react-native-zoom-us/-/react-native-zoom-us-6.6.1.tgz#64e3958efd064153ae63ee948bba2b902ab2e1c1"
+  integrity sha512-skhrhn074OlwbHEU6X39GUcMZgt5/BI+HA0eqvh16JS216T7EUV5MuDrWMch7UK17CeZwLns7D/IhhRWT0kxuQ==
   dependencies:
     color "^3.2.1"
     invariant "^2.2.4"
