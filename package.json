@@ -18,6 +18,7 @@
     "@modules/address-selection-autocomplete": "file:./modules/address-selection-autocomplete/",
     "@modules/appointment": "file:./modules/appointment/",
     "@modules/appointment-local": "file:./modules/appointment-local/",
+    "@modules/articles": "file:./modules/articles/",
     "@modules/terms-and-conditions-webview": "file:./modules/terms-and-conditions-webview/",
     "@react-native-community/geolocation": "2.1.0",
     "@react-native-google-signin/google-signin": "7.2.2",
