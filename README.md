@@ -100,6 +100,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [django-okta](backend/modules)
 - [react-native-onboarding](modules/onboarding)
 - [react-native-typeform-webhook](modules/typeform-webhook)
+- [django-openai](backend/modules)
 
 # Getting started: Frontend
 
