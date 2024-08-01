@@ -105,6 +105,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [django-paypal](backend/modules)
 - [react-native-pdf-viewer](modules/pdfviewer)
 - [react-native-zoom-free-calling](modules/zoom-free-calling)
+- [privacy-policy]()
 
 # Getting started: Frontend
 

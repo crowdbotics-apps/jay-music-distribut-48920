@@ -39,6 +39,7 @@
     "@modules/payments": "file:./modules/payments",
     "@modules/pdfviewer": "file:./modules/pdfviewer/",
     "@modules/photo-editing": "file:./modules/photo-editing/",
+    "@modules/privacy-policy": "file:./modules/privacy-policy",
     "@modules/qr-code": "file:./modules/qr-code/",
     "@modules/social-feed": "file:./modules/social-feed",
     "@modules/terms-and-conditions-webview": "file:./modules/terms-and-conditions-webview/",
