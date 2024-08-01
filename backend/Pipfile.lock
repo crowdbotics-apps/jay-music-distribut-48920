@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1c59558a5f9a68dde959b57f6be2b29a4f9b80b21a93a5f7e6f2e10792a6da51"
+            "sha256": "be07209c7152e3a28912ee9fd0e7c3b7f5ef4271544774072f4bb0d4be62f173"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -119,6 +119,10 @@
         "cb-django-google-appointment": {
             "editable": true,
             "path": "./modules/django_google_appointment"
+        },
+        "cb-django-s3-file-uploader": {
+            "editable": true,
+            "path": "./modules/django_s3_file_uploader"
         },
         "certifi": {
             "hashes": [
