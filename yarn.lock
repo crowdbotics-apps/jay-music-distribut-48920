@@ -3017,6 +3017,11 @@
   dependencies:
     react-native-dropdown-picker "5.3.0"
 
+"@modules/appointment-local@file:./modules/appointment-local/":
+  version "1.0.1"
+  dependencies:
+    react-native-dropdown-picker "5.3.0"
+
 "@modules/appointment@file:./modules/appointment":
   version "1.0.0"
   dependencies:
@@ -3148,15 +3153,6 @@
   version "1.0.0"
 
 "@modules/typeform-webhook@file:./modules/typeform-webhook":
-  version "1.0.0"
-  dependencies:
-    "@react-navigation/native" "6.0.8"
-    "@react-navigation/native-stack" "6.5.0"
-    react-native-base64 "0.2.1"
-    react-native-screens "3.10.2"
-    react-native-typeform-embed "1.0.4"
-
-"@modules/typeform-webhook@file:./modules/typeform-webhook/":
   version "1.0.0"
   dependencies:
     "@react-navigation/native" "6.0.8"
