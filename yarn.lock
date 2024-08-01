@@ -1464,6 +1464,16 @@
 "@modules/address-selection-autocomplete@file:./modules/address-selection-autocomplete":
   version "1.0.0"
 
+"@modules/appointment@file:./modules/appointment":
+  version "1.0.0"
+  dependencies:
+    "@react-navigation/native-stack" "6.5.0"
+    moment "2.29.3"
+    react-native-calendar-strip "2.2.5"
+    react-native-calendars "1.1282.0"
+    react-native-dropdown-picker "5.3.0"
+    react-native-screens "3.10.2"
+
 "@modules/appointment@file:./modules/appointment/":
   version "1.0.0"
   dependencies:
