@@ -3057,7 +3057,7 @@
 "@modules/maps@file:./modules/maps":
   version "1.0.0"
 
-"@modules/maps@file:./modules/maps/":
+"@modules/mixpanel-analytics@file:./modules/mixpanel-analytics/":
   version "1.0.0"
 
 "@modules/photo-editing@file:./modules/photo-editing":
@@ -11139,6 +11139,11 @@ mixin-object@^2.0.1:
   dependencies:
     for-in "^0.1.3"
     is-extendable "^0.1.1"
+
+mixpanel-react-native@^2.3.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/mixpanel-react-native/-/mixpanel-react-native-2.4.1.tgz#d63bf160875e9a0b7e3a50f395ad7aaa6d8c09a5"
+  integrity sha512-NNzXxOxX83FSIKN3x9vY49a13mk2syshWDcXvkfljiQ2bgwk0suA9PKYQNOkbwT/Af53oWt06JMe0xP4RUOyCA==
 
 mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   version "0.5.3"
