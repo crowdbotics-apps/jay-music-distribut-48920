@@ -3034,6 +3034,9 @@
 "@modules/google-analytics@file:./modules/google-analytics":
   version "1.0.0"
 
+"@modules/image-gallery@file:./modules/image-gallery/":
+  version "1.0.0"
+
 "@modules/login@file:./modules/login":
   version "1.0.0"
   dependencies:
@@ -3046,9 +3049,6 @@
   version "1.0.0"
 
 "@modules/photo-editing@file:./modules/photo-editing":
-  version "1.0.0"
-
-"@modules/photo-editing@file:./modules/photo-editing/":
   version "1.0.0"
 
 "@modules/qr-code@file:./modules/qr-code":
@@ -3142,6 +3142,11 @@
   integrity sha512-W4/vbwUOYOjco0x3toB8QCr7EjIP6nE9G7o8PMguvvjYT5Awg09lyV4enACRx4s++PPulBiBSjL0KTFx2u0Z/g==
   dependencies:
     merge-options "^3.0.4"
+
+"@react-native-camera-roll/camera-roll@5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@react-native-camera-roll/camera-roll/-/camera-roll-5.0.2.tgz#299bcd25fc51c1e8564808e744439bf7761286af"
+  integrity sha512-5gBol4mHjw9u1hUQzYWWdnB+uYgjuBd+adLQfJWhE6yv7rNFb+Noi872bYLyzBb8ayaVAbp/EtlxiG1lWY/IyA==
 
 "@react-native-community/cameraroll@4.1.2":
   version "4.1.2"

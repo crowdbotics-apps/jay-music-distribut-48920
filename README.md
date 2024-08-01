@@ -91,6 +91,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [faq]()
 - [react-native-maps](modules/maps)
 - [react-native-google-analytics](modules/google-analytics)
+- [react-native-image-gallery](modules/image-gallery)
 
 # Getting started: Frontend
 
