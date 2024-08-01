@@ -54,8 +54,8 @@ cb-django-paypal = {editable = true, path = "./modules/django_paypal"}
 cb-privacy-policy = {editable = true, path = "./modules/privacy_policy"}
 cb-django-push-notifications = {editable = true, path = "./modules/django_push_notifications"}
 cb-firebase-push-notifications = {editable = true, path = "./modules/firebase_push_notifications"}
-cb-django-typeform-webhook = {editable = true, path = "./modules/django_typeform_webhook"}
 cb-django-signature = {editable = true, path = "./modules/django_signature"}
 cb-django-social-auth = {editable = true, path = "./modules/django_social_auth"}
 cb-django-articles = {editable = true, path = "./modules/django_articles"}
 cb-terms-and-conditions = {editable = true, path = "./modules/terms_and_conditions"}
+cb-django-typeform-webhook = {editable = true, path = "./modules/django_typeform_webhook"}
