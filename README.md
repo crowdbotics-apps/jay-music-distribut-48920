@@ -86,6 +86,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-photo-editing](modules/photo-editing)
 - [react-native-wallet-connect](modules/wallet-connect)
 - [react-native-fingerprint-authentication](modules/fingerprint-authentication)
+- [firebase-push-notifications]()
 
 # Getting started: Frontend
 
