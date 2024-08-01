@@ -106,6 +106,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-pdf-viewer](modules/pdfviewer)
 - [react-native-zoom-free-calling](modules/zoom-free-calling)
 - [privacy-policy]()
+- [react-native-privacy-policy-webview](modules/privacy-policy-webview)
 
 # Getting started: Frontend
 
