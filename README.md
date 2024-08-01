@@ -81,6 +81,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [django-camera](backend/modules)
 - [django-disqus](backend/modules)
 - [django-s3-file-uploader](backend/modules)
+- [django-two-factor-authentication](backend/modules)
 
 # Getting started: Frontend
 
