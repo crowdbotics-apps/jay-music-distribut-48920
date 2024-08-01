@@ -3118,6 +3118,9 @@
 "@modules/photo-editing@file:./modules/photo-editing":
   version "1.0.0"
 
+"@modules/photo-editing@file:./modules/photo-editing/":
+  version "1.0.0"
+
 "@modules/qr-code@file:./modules/qr-code":
   version "1.0.0"
   dependencies:
@@ -3165,7 +3168,7 @@
     react-native-svg "12.3.0"
     web3 "^1.7.1"
 
-"@modules/zoom-free-calling@file:./modules/zoom-free-calling/":
+"@modules/zoom-free-calling@file:./modules/zoom-free-calling":
   version "1.0.1"
   dependencies:
     react-native-base64 "0.2.1"
@@ -3239,7 +3242,7 @@
   resolved "https://registry.yarnpkg.com/@react-native-camera-roll/camera-roll/-/camera-roll-5.0.2.tgz#299bcd25fc51c1e8564808e744439bf7761286af"
   integrity sha512-5gBol4mHjw9u1hUQzYWWdnB+uYgjuBd+adLQfJWhE6yv7rNFb+Noi872bYLyzBb8ayaVAbp/EtlxiG1lWY/IyA==
 
-"@react-native-community/cameraroll@^4.1.2":
+"@react-native-community/cameraroll@4.1.2", "@react-native-community/cameraroll@^4.1.2":
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/@react-native-community/cameraroll/-/cameraroll-4.1.2.tgz#489c6bb6137571540d93c543d5fcf8c652b548ec"
   integrity sha512-jkdhMByMKD2CZ/5MPeBieYn8vkCfC4MOTouPpBpps3I8N6HUYJk+1JnDdktVYl2WINnqXpQptDA2YptVyifYAg==
@@ -12839,10 +12842,10 @@ react-native-image-crop-picker@^0.40.0:
   resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.40.3.tgz#a6b135cd1218a33ad126c1a148ec5a1bd01737ff"
   integrity sha512-45PKcTnsnLS+E36YwoXutllQdRSOuOsMN0IRcAcwsFXOuAQIOtugXlAuGGL28JHKb/ATaSSPvqCSrdG65Jv3GA==
 
-react-native-image-picker@5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-5.4.0.tgz#a693fbd3057d48667d87a340a3c6bdb599120983"
-  integrity sha512-qtLroIqpHADaR0/XJBD7E0boq+AAVT6wXvY4+pzrHjx12Lx2BhpFZH0rlWc/HIqeWBhZckAIpZ0ndapiGEMdYg==
+react-native-image-picker@4.8.3:
+  version "4.8.3"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-4.8.3.tgz#a74801e8428325133a42dcd818fa54f08e6b20e6"
+  integrity sha512-mA3xKN8TtXpLl3Aoo65ArZvusv3gCsbe3/hsOLKI1DcC+QcYPcDnsYK/ft05rWBj4BdiJ9E2JoveiHNtU8W9GA==
 
 react-native-image-resizer@1.4.5:
   version "1.4.5"
@@ -13001,14 +13004,6 @@ react-native-screens@3.10.2:
   version "3.10.2"
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-3.10.2.tgz#cbf505d61c09e29ad5b335309951a3bd81f0df19"
   integrity sha512-bMKSpwMeqAoXBqTJiDEG1ogM1cMk66sEmpp/4dGqdX59v+OwMqPeTuBk37qaSuS7gPOFFKsNW2X3ymGvBT4iEw==
-  dependencies:
-    react-freeze "^1.0.0"
-    warn-once "^0.1.0"
-
-react-native-screens@3.20.0:
-  version "3.20.0"
-  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-3.20.0.tgz#4d154177395e5541387d9a05bc2e12e54d2fb5b1"
-  integrity sha512-joWUKWAVHxymP3mL9gYApFHAsbd9L6ZcmpoZa6Sl3W/82bvvNVMqcfP7MeNqVCg73qZ8yL4fW+J/syusHleUgg==
   dependencies:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
