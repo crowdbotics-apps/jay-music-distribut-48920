@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2f7bda84fbd2b24ba0b2eb58500059395df1caf442650fcff7eab539f23430d0"
+            "sha256": "9c12425089849e763843677996373fe301fb280cec477b02944f30abf5a32020"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -308,6 +308,10 @@
         "cb-django-video-uploader": {
             "editable": true,
             "path": "./modules/django_video_uploader"
+        },
+        "cb-django-wordpress": {
+            "editable": true,
+            "path": "./modules/django_wordpress"
         },
         "cb-firebase-push-notifications": {
             "editable": true,

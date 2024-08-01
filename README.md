@@ -122,6 +122,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-user-profile](modules/user-profile)
 - [react-native-youtube-player](modules/youtube-player)
 - [django-video-uploader](backend/modules)
+- [django-wordpress](backend/modules)
 
 # Getting started: Frontend
 
