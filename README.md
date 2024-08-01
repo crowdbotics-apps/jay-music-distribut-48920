@@ -68,6 +68,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-articles](modules/articles)
 - [django-articles](backend/modules)
 - [react-native-audio-player](modules/audio-player)
+- [react-native-azure-ad-auth](modules/azure-ad-auth)
 
 # Getting started: Frontend
 
