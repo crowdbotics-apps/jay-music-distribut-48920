@@ -102,6 +102,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-typeform-webhook](modules/typeform-webhook)
 - [django-openai](backend/modules)
 - [payments]()
+- [django-paypal](backend/modules)
 
 # Getting started: Frontend
 

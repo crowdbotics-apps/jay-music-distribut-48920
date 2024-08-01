@@ -51,3 +51,4 @@ cb-django-ocr = {editable = true, path = "./modules/django_ocr"}
 cb-django-okta = {editable = true, path = "./modules/django_okta"}
 cb-django-openai = {editable = true, path = "./modules/django_openai"}
 cb-payments = {editable = true, path = "./modules/payments"}
+cb-django-paypal = {editable = true, path = "./modules/django_paypal"}

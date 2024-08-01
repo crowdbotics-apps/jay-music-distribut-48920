@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6a35198032b4beb0d79869fefd5c544dbce95fa170f79a51bd77a43f014c115b"
+            "sha256": "2d3fbf1334e1f0e32a13afb1a50e3275270f3b8dc64bc0d6a5f880cd26e48488"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -268,6 +268,10 @@
         "cb-django-openai": {
             "editable": true,
             "path": "./modules/django_openai"
+        },
+        "cb-django-paypal": {
+            "editable": true,
+            "path": "./modules/django_paypal"
         },
         "cb-django-s3-file-uploader": {
             "editable": true,
