@@ -90,6 +90,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-firebase-crashlytics](modules/firebase-crashlytics)
 - [faq]()
 - [react-native-maps](modules/maps)
+- [react-native-google-analytics](modules/google-analytics)
 
 # Getting started: Frontend
 
