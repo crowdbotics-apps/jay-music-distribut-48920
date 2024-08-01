@@ -103,6 +103,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [django-openai](backend/modules)
 - [payments]()
 - [django-paypal](backend/modules)
+- [react-native-pdf-viewer](modules/pdfviewer)
 
 # Getting started: Frontend
 
