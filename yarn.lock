@@ -3226,6 +3226,9 @@
     react-native-svg "12.3.0"
     web3 "^1.7.1"
 
+"@modules/youtube-player@file:./modules/youtube-player":
+  version "1.0.0"
+
 "@modules/youtube-player@file:./modules/youtube-player/":
   version "1.0.0"
 
