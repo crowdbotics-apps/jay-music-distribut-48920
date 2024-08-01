@@ -3060,6 +3060,9 @@
 "@modules/mixpanel-analytics@file:./modules/mixpanel-analytics":
   version "1.0.0"
 
+"@modules/mixpanel-analytics@file:./modules/mixpanel-analytics/":
+  version "1.0.0"
+
 "@modules/onboarding@file:./modules/onboarding":
   version "1.0.0"
   dependencies:
@@ -3087,7 +3090,7 @@
 "@modules/terms-and-conditions-webview@file:./modules/terms-and-conditions-webview":
   version "1.0.0"
 
-"@modules/typeform-webhook@file:./modules/typeform-webhook/":
+"@modules/typeform-webhook@file:./modules/typeform-webhook":
   version "1.0.0"
   dependencies:
     "@react-navigation/native" "6.0.8"
