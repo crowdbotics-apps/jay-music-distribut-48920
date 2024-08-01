@@ -1,16 +1,15 @@
+
 from django.urls import path, include
 from rest_framework import routers
 
-from .viewsets import TwoFactorAuthViewSet, OTPVerificationViewSet, GoogleAuthenticatorViewSet, \
-    EnableTwoFactorAuthViewSet
+from .viewsets import *
+
 
 router = routers.DefaultRouter()
-
+router.register('twofactorauth', PhoneNumberViewset)
+router.register('verify', VerifyViewSet)
 urlpatterns = [
     path('', include(router.urls)),
-    path('send/otp', TwoFactorAuthViewSet.as_view()),
-    path('google/authenticator/qr', GoogleAuthenticatorViewSet.as_view()),
-    path('verify/otp', OTPVerificationViewSet.as_view()),
-    path('enable/2fa', EnableTwoFactorAuthViewSet.as_view()),
-    path('verify/otp/<str:enable>', OTPVerificationViewSet.as_view()),
+    path('2fa', Google_AUTH.as_view()),
 ]
+

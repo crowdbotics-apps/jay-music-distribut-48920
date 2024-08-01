@@ -1,18 +1,15 @@
+from .models import TwoFactorAuth, Verify
 from rest_framework import serializers
 
-from .models import TwoFactorAuth
 
-
-class OTPVerificationSerializer(serializers.ModelSerializer):
+class PhoneNumberSerializer(serializers.ModelSerializer):
     class Meta:
         model = TwoFactorAuth
-        fields = ['method', 'code']
-        extra_kwargs = {'user': {'required': False}}
+        fields = '__all__'
 
 
-class TwoFactorAuthValidationSerializer(serializers.Serializer):
-    method = serializers.ChoiceField(choices=TwoFactorAuth.METHOD, required=True, allow_blank=False, allow_null=False)
+class VerifySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Verify
+        fields = '__all__'
 
-
-class EnableTwoFactorAuthenticationUserSerializer(serializers.Serializer):
-    method = serializers.ChoiceField(choices=TwoFactorAuth.METHOD, required=True, allow_blank=False, allow_null=False)
