@@ -132,6 +132,7 @@
     "react-native-view-pdf": "0.14.0",
     "react-native-web": "^0.18.10",
     "react-native-webview": "11.26.1",
+    "react-native-youtube": "2.0.2",
     "react-native-youtube-iframe": "2.3.0",
     "react-native-zoom-us": "6.16.5",
     "react-redux": "^8.0.5",
