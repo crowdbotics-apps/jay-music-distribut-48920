@@ -2974,11 +2974,6 @@
   dependencies:
     react-native-dropdown-picker "5.3.0"
 
-"@modules/appointment-local@file:./modules/appointment-local/":
-  version "1.0.1"
-  dependencies:
-    react-native-dropdown-picker "5.3.0"
-
 "@modules/appointment@file:./modules/appointment":
   version "1.0.0"
   dependencies:
@@ -3050,6 +3045,14 @@
     react-native-vector-icons "^9.2.0"
 
 "@modules/login@file:./modules/login":
+  version "1.0.0"
+  dependencies:
+    "@react-navigation/native" "^5.9.2"
+    "@react-navigation/stack" "^5.14.2"
+    prop-types "15.8.1"
+    react-native-keyboard-aware-scroll-view "^0.9.3"
+
+"@modules/login@file:./modules/login/":
   version "1.0.0"
   dependencies:
     "@react-navigation/native" "^5.9.2"
@@ -3145,6 +3148,13 @@
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.17.1.tgz#01ba1c46cc1b5af06c76cdf5acacef8797a9ce0f"
   integrity sha512-2WBcKjPfiG7S962liruXDBJFdzAZEXJnZGK2EHuxwlYYnt2U+BGwrwfBXiEIkctdMwQo0nvRJNHUWri7TnIuOQ==
+  dependencies:
+    merge-options "^3.0.4"
+
+"@react-native-async-storage/async-storage@1.17.9":
+  version "1.17.9"
+  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.17.9.tgz#2092d675fb9de05a3e71cdf8cefa9c5c4e4a3728"
+  integrity sha512-HKhMvjpA5/YzNMkcY3qeWLdTtUrtJe243knHNNYe1c0IplX69hZyiw7DjFwAgxPG9+YvzHDHliqPV+mBNOv+cQ==
   dependencies:
     merge-options "^3.0.4"
 
