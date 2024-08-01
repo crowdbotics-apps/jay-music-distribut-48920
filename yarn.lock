@@ -1495,6 +1495,11 @@
 "@modules/azure-ad-auth@file:./modules/azure-ad-auth":
   version "1.0.0"
 
+"@modules/camera@file:./modules/camera":
+  version "1.0.1"
+  dependencies:
+    react-native-actionsheet "^2.4.2"
+
 "@modules/camera@file:./modules/camera/":
   version "1.0.1"
   dependencies:
