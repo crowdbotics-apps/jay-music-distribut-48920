@@ -1,6 +1,5 @@
 import React from "react";
 import Navigator from "./Navigator";
-import { slice } from "./store";
 
 const TypeformWebhooks = () => {
   return (
@@ -10,6 +9,5 @@ const TypeformWebhooks = () => {
 
 export default {
   title: "TypeForm Webhook",
-  navigator: TypeformWebhooks,
-  slice
+  navigator: TypeformWebhooks
 };
