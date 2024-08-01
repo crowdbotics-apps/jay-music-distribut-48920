@@ -93,6 +93,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-google-analytics](modules/google-analytics)
 - [react-native-image-gallery](modules/image-gallery)
 - [react-native-live-camera-filters](modules/live-camera-filters)
+- [django-mailchimp](backend/modules)
 
 # Getting started: Frontend
 

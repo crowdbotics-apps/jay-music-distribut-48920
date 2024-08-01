@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6427a2685cd3de17db3cd20eff3fba42aba883e7627941757bfe510f6ea4d924"
+            "sha256": "1ba0cb661a1371122320ab2e06190ff84328872513a76fbbde80ce4b2cb53acc"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -252,6 +252,10 @@
         "cb-django-google-appointment": {
             "editable": true,
             "path": "./modules/django_google_appointment"
+        },
+        "cb-django-mailchimp": {
+            "editable": true,
+            "path": "./modules/django_mailchimp"
         },
         "cb-django-s3-file-uploader": {
             "editable": true,
@@ -1003,6 +1007,12 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==2023.12.1"
+        },
+        "mailchimp-marketing": {
+            "hashes": [
+                "sha256:a5bcb3ebd3be60908c65af765f8195724e6fd2d61ecf6da667a794c5bc7b84d3"
+            ],
+            "version": "==3.0.80"
         },
         "msal": {
             "hashes": [
