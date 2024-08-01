@@ -110,6 +110,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [django-push-notifications](backend/modules)
 - [react-native-push-notifications](modules/push-notifications)
 - [django-typeform-webhook](backend/modules)
+- [react-native-signature](modules/signature)
 
 # Getting started: Frontend
 
