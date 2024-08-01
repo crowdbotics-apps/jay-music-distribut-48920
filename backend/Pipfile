@@ -60,3 +60,4 @@ cb-terms-and-conditions = {editable = true, path = "./modules/terms_and_conditio
 cb-django-typeform-webhook = {editable = true, path = "./modules/django_typeform_webhook"}
 cb-django-files = {editable = true, path = "./modules/django_files"}
 cb-django-core = {editable = true, path = "./modules/django_core"}
+cb-django-video-uploader = {editable = true, path = "./modules/django_video_uploader"}

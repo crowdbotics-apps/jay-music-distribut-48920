@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "90e5e383babccc2077c193c8549680e13a8d4057d9c14e9fe2812d2e05fd2112"
+            "sha256": "2f7bda84fbd2b24ba0b2eb58500059395df1caf442650fcff7eab539f23430d0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -304,6 +304,10 @@
         "cb-django-typeform-webhook": {
             "editable": true,
             "path": "./modules/django_typeform_webhook"
+        },
+        "cb-django-video-uploader": {
+            "editable": true,
+            "path": "./modules/django_video_uploader"
         },
         "cb-firebase-push-notifications": {
             "editable": true,
