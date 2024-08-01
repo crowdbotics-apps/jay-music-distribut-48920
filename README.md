@@ -75,6 +75,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-chat](modules/chat)
 - [react-native-login](modules/login)
 - [social-feed]()
+- [django-contact-us](backend/modules)
 
 # Getting started: Frontend
 
