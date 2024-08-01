@@ -25,6 +25,7 @@
     "@modules/chat": "file:./modules/chat/",
     "@modules/login": "file:./modules/login/",
     "@modules/qr-code": "file:./modules/qr-code/",
+    "@modules/social-feed": "file:./modules/social-feed",
     "@modules/terms-and-conditions-webview": "file:./modules/terms-and-conditions-webview/",
     "@react-native-async-storage/async-storage": "1.17.9",
     "@react-native-community/checkbox": "0.5.10",
