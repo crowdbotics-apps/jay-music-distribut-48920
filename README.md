@@ -112,6 +112,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [django-typeform-webhook](backend/modules)
 - [react-native-signature](modules/signature)
 - [react-native-side-drawer](modules/side-drawer)
+- [django-signature](backend/modules)
 
 # Getting started: Frontend
 
