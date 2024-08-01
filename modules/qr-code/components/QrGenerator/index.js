@@ -2,28 +2,25 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, Image } from "react-native";
 import Input from "../TextInput";
 import Button from "../Button";
-import { getQr } from "../../store";
+import { getQr } from "../../api";
 import Loader from "../Loader";
-import { unwrapResult } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 
 const QrGenerator = () => {
   const [key, setKey] = useState("");
   const [qr, setQr] = useState(null);
   const [isLoader, setIsLoader] = useState(false);
-  const dispatch = useDispatch();
 
-  const pressHandler = async () => {
+  const pressHandler = () => {
     setIsLoader(true);
-    await dispatch(getQr({ text: key }))
-      .then(unwrapResult)
+    getQr({ text: key })
+      .then(res => res.json())
       .then(res => {
         setIsLoader(false);
         setQr(res.qrcode);
       })
-      .catch(error => {
+      .catch(e => {
         setIsLoader(false);
-        console.log(error);
+        console.log(e);
       });
   };
 
