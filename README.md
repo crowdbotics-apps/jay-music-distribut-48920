@@ -87,6 +87,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-wallet-connect](modules/wallet-connect)
 - [react-native-fingerprint-authentication](modules/fingerprint-authentication)
 - [firebase-push-notifications]()
+- [react-native-firebase-crashlytics](modules/firebase-crashlytics)
 
 # Getting started: Frontend
 
