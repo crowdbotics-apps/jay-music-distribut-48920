@@ -119,6 +119,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [subscription]()
 - [terms-and-conditions]()
 - [django-files](backend/modules)
+- [react-native-user-profile](modules/user-profile)
 
 # Getting started: Frontend
 
