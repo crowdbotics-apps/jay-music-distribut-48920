@@ -114,6 +114,7 @@ This section will show any installed modules you add from the Storyboard Modules
 - [react-native-side-drawer](modules/side-drawer)
 - [django-signature](backend/modules)
 - [django-social-auth](backend/modules)
+- [react-native-social-login](modules/social-login)
 
 # Getting started: Frontend
 
