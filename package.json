@@ -23,6 +23,7 @@
     "@modules/azure-ad-auth": "file:./modules/azure-ad-auth/",
     "@modules/camera": "file:./modules/camera/",
     "@modules/chat": "file:./modules/chat/",
+    "@modules/contact-us": "file:./modules/contact-us/",
     "@modules/login": "file:./modules/login/",
     "@modules/qr-code": "file:./modules/qr-code/",
     "@modules/social-feed": "file:./modules/social-feed",
